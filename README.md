@@ -1,2 +1,5 @@
 # asset_simulator
 資産の推移を計算し、ライフプランの設計の助けとなるツールです。
+# assetsim_main.exeのマニュアル
+- example/simulator_setを任意の場所に保存
+- 

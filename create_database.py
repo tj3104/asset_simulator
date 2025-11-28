@@ -66,7 +66,7 @@ def get_annual_return_distribution(macrotrends_dir,
     })
     # Shareが0の行を削除
     result_df = result_df[result_df["Share"] > 0]
-    result_df.to_csv(f"{database_dir}/{name}_macrotrends.csv", index=False)
+    result_df.to_csv(f"{database_dir}/{name}.csv", index=False)
 
     # ヒストグラムを表示（必要なら）
     if monthly_histogram:
