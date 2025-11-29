@@ -147,8 +147,8 @@ if __name__ == "__main__":
 
     maindir = glob.glob("01_*")[0]
     cond = {
-        "output_dir": "repos/tajima_src/asset",
-        "asset_plan_in": "repos/tajima_src/asset/asset_plan.csv",
+        "output_dir": "<asset_path>/asset",
+        "asset_plan_in": "<asset_path>/asset/asset_plan.csv",
         "sock_database_path": "01_assets/database",
         "stock_list": ["sp500", "nasdaq"],
         "fig_mode": "matplotlib",

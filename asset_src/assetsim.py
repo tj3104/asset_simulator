@@ -535,7 +535,8 @@ class AssetSim():
 def single_life_example():
 
     # 支出データ読み込み
-    from asset.input_generator import InputGenerator
+    from input_generator import InputGenerator
+    # from asset.input_generator import InputGenerator
     import glob
     import pandas as pd
     maindir = glob.glob("01_*/output/01_*")[0]
@@ -571,7 +572,8 @@ def single_life_example():
 def multi_life_example():
 
     # 支出データ読み込み
-    from asset.input_generator import InputGenerator
+    # from asset.input_generator import InputGenerator
+    from input_generator import InputGenerator
     import glob
     import pandas as pd
     maindir = glob.glob("01_*")[0]
