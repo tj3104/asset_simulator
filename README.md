@@ -2,7 +2,7 @@
 資産の推移を計算し、ライフプランの設計の助けとなるツールです。
 # exeを実行して計算
 # assetsim_main.exeのマニュアル
-- example/simulator_setを任意の場所に保存
+- simulator_setを任意の場所に保存
 - asset_planを編集
     - 列の説明
         - ageより左の列  
