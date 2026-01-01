@@ -7,10 +7,8 @@ import pandas as pd
 from IPython.display import display
 import plotly.graph_objects as go
 
-from asset.asset_src.asset_simulator import AssetSimulator
-from asset.asset_src.tbase_for_asset import save_dict_as_json, get_json_as_dict
-# from asset_src.asset_simulator import AssetSimulator
-# from asset_src.tbase_for_asset import save_dict_as_json, get_json_as_dict
+from asset_src.asset_simulator import AssetSimulator
+from asset_src.tbase_for_asset import save_dict_as_json, read_json_as_dict
 
 
 def get_exe_dir():
@@ -35,6 +33,7 @@ def make_js_in():
         "initial_year": 2025,
         "initial_cash": 2500000,
         "initial_invest_asset": 0,
+        "inflation_rate": 1.02,
         "multi_life_mode": True,
         "number_of_life": 1000,
         "check_years": [2026, 2030, 2040, 2050, 2060, 2070, 2080, 2090],
@@ -48,7 +47,7 @@ def make_js_in():
 def main():
     maindir = get_exe_dir()
     js_in = f"{maindir}/condition.json"
-    cond = get_json_as_dict(js_in)
+    cond = read_json_as_dict(js_in)
     os.makedirs(cond["output_dir"], exist_ok=True)
     AS = AssetSimulator(js_in)
     AS.check_plan()

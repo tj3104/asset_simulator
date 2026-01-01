@@ -12,7 +12,8 @@ import plotly.graph_objects as go
 class AssetSim():
 
     def __init__(self, return_distribution_dict, invest_plan, asset_plan,
-                 initial_year, initial_cash, initial_invest_asset):
+                 initial_year, initial_cash, initial_invest_asset,
+                 inflation_rate):
         """
         return_distributions:株式投資のリターン分布リスト{"sp500":sp500_return_distribution, "nasdaq":nasdaq_return_distribution}
         initial_year:開始年  
@@ -37,6 +38,7 @@ class AssetSim():
         self.initial_cash_asset = initial_cash
         self.initial_invest_asset = initial_invest_asset
         self.initial_total_asset = initial_cash + initial_invest_asset
+        self.initial_inflation_rate = inflation_rate
 
         self.initialize()
 
@@ -48,6 +50,7 @@ class AssetSim():
         self.cash_asset = self.initial_cash_asset
         self.invest_asset = self.initial_invest_asset
         self.total_asset = self.initial_total_asset
+        self.inflation_rate = self.initial_inflation_rate
 
     def get_multi_role_play_assets(self, n: int):
         """
@@ -107,7 +110,6 @@ class AssetSim():
         self.initialize()
 
         # income, cost, saving_per_year, invest_per_year = 10000000, 8000000, 500000, 1500000
-
         years = []
         cash_assets = []
         invest_assets = []
@@ -124,7 +126,7 @@ class AssetSim():
 
             self.cash_asset, self.invest_asset, self.total_asset = self.update_assets_one_year(
                 cost, income, saving_per_year, invest_per_year,
-                invest_plan_a_year)  # 初年度の資産額がおかしい(cashが異常？？)
+                invest_plan_a_year)
 
             years.append(self.year)
             cash_assets.append(self.cash_asset)
@@ -253,6 +255,10 @@ class AssetSim():
         """
         # 一年経過
         self.year += 1
+
+        # インフレを加味した支出
+        inflation_coeff = self.inflation_rate**(self.year - self.initial_year)
+        cost = cost * inflation_coeff
 
         # cashが尽きたらinvestを取り崩し
         if self.cash_asset <= 0:

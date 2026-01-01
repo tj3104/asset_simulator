@@ -1,15 +1,16 @@
 {
-    "output_dir": "/home/tajimamainpc/repos/asset_simulator/example/result",
-    "asset_plan_in": "/home/tajimamainpc/repos/asset_simulator/example/asset_plan.csv",
+    "output_dir": "/home/tajimamainpc/repos/asset_simulator/result",
+    "asset_plan_in": "/home/tajimamainpc/repos/asset_simulator/asset_plan.csv",
     "sock_database_path": "/home/tajimamainpc/repos/asset_simulator/database",
     "fig_mode": "plotly",
     "is_show": false,
     "single_life_mode": true,
     "initial_year": 2025,
-    "initial_cash": 1000000,
+    "initial_cash": 2500000,
     "initial_invest_asset": 0,
+    "inflation_rate": 1.02,
     "multi_life_mode": true,
-    "number_of_life": 10000,
+    "number_of_life": 1000,
     "check_years": [
         2026,
         2030,
@@ -20,7 +21,7 @@
         2080,
         2090
     ],
-    "asset_threshold": 20000000,
+    "asset_threshold": 50000000,
     "achieve_percents": [
         70,
         80,

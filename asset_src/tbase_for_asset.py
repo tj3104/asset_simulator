@@ -21,7 +21,7 @@ def save_dict_as_json(data: dict,
         json.dump(data, f, ensure_ascii=ensure_ascii, indent=indent)
 
 
-def get_json_as_dict(file_path: str) -> dict:
+def read_json_as_dict(file_path: str) -> dict:
     """
     JSONファイルを読み込み辞書として返す。
 
@@ -38,7 +38,7 @@ def get_json_as_dict(file_path: str) -> dict:
 class Base_class:
 
     def __init__(self, js_in):
-        json_dict = get_json_as_dict(js_in)
+        json_dict = read_json_as_dict(js_in)
         if not isinstance(json_dict, dict):
             raise TypeError("引数はdict型である必要があります")
 

@@ -4,13 +4,13 @@ import pandas as pd
 from IPython.display import display
 import plotly.graph_objects as go
 
-from asset.asset_src.assetsim import AssetSim
-from asset.asset_src.input_generator import InputGenerator
-from asset.asset_src.tbase_for_asset import Base_class
+# from asset.asset_src.assetsim import AssetSim
+# from asset.asset_src.input_generator import InputGenerator
+# from asset.asset_src.tbase_for_asset import Base_class
 
-# from assetsim import AssetSim
-# from input_generator import InputGenerator
-# from tbase_for_asset import Base_class
+from assetsim import AssetSim
+from input_generator import InputGenerator
+from tbase_for_asset import Base_class
 
 
 class AssetSimulator(Base_class):
@@ -43,7 +43,8 @@ class AssetSimulator(Base_class):
             "asset_plan": self.asset_plan,
             "initial_year": self.initial_year,
             "initial_cash": self.initial_cash,
-            "initial_invest_asset": self.initial_invest_asset
+            "initial_invest_asset": self.initial_invest_asset,
+            "inflation_rate": self.inflation_rate
         }
         AS = AssetSim(**AS_cond)
 
